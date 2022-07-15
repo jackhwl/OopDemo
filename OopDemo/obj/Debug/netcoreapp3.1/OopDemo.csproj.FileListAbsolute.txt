@@ -1,0 +1,14 @@
+/Users/wenlin/projects/OopDemo/OopDemo/bin/Debug/netcoreapp3.1/OopDemo
+/Users/wenlin/projects/OopDemo/OopDemo/bin/Debug/netcoreapp3.1/OopDemo.deps.json
+/Users/wenlin/projects/OopDemo/OopDemo/bin/Debug/netcoreapp3.1/OopDemo.runtimeconfig.json
+/Users/wenlin/projects/OopDemo/OopDemo/bin/Debug/netcoreapp3.1/OopDemo.runtimeconfig.dev.json
+/Users/wenlin/projects/OopDemo/OopDemo/bin/Debug/netcoreapp3.1/OopDemo.dll
+/Users/wenlin/projects/OopDemo/OopDemo/bin/Debug/netcoreapp3.1/OopDemo.pdb
+/Users/wenlin/projects/OopDemo/OopDemo/obj/Debug/netcoreapp3.1/OopDemo.csproj.AssemblyReference.cache
+/Users/wenlin/projects/OopDemo/OopDemo/obj/Debug/netcoreapp3.1/OopDemo.GeneratedMSBuildEditorConfig.editorconfig
+/Users/wenlin/projects/OopDemo/OopDemo/obj/Debug/netcoreapp3.1/OopDemo.AssemblyInfoInputs.cache
+/Users/wenlin/projects/OopDemo/OopDemo/obj/Debug/netcoreapp3.1/OopDemo.AssemblyInfo.cs
+/Users/wenlin/projects/OopDemo/OopDemo/obj/Debug/netcoreapp3.1/OopDemo.csproj.CoreCompileInputs.cache
+/Users/wenlin/projects/OopDemo/OopDemo/obj/Debug/netcoreapp3.1/OopDemo.dll
+/Users/wenlin/projects/OopDemo/OopDemo/obj/Debug/netcoreapp3.1/OopDemo.pdb
+/Users/wenlin/projects/OopDemo/OopDemo/obj/Debug/netcoreapp3.1/OopDemo.genruntimeconfig.cache
