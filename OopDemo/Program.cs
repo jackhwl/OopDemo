@@ -18,42 +18,39 @@ namespace OopDemo
         //Implement method which calculates first day at school, given the birthdate
         public int GetFirstSchoolDayAtSchool(int birthday)
         {
-            int year = birthday / 10000;
+            int year = birthday / 10000 + minAge;
             int month = (birthday % 10000) / 100;
             int day = (birthday % 10000) % 100;
 
-            int firstYear = year + minAge;
-
             if (month > beginMonth || (month == beginMonth && day > beginDay) )
             {
-                firstYear++;
+                year++;
             }
 
-            return firstYear * 10000 + beginMonth * 100 + beginDay;
+            return year * 10000 + beginMonth * 100 + beginDay;
         }
 
         //Implement method which calculates child's first birthday at school
         public int GetFirstBirthDayAtSchool(int birthday)
         {
-            int year = birthday / 10000;
             int month = (birthday % 10000) / 100;
             int day = (birthday % 10000) % 100;
 
             int firstSchoolDay = GetFirstSchoolDayAtSchool(birthday);
 
-            int firstYear = firstSchoolDay / 10000;
+            int year = firstSchoolDay / 10000;
 
             if (month < beginMonth || (month == beginMonth && day < beginDay))
             {
-                firstYear++;
+                year++;
             }
 
-            while (month == 2 && day == 29 && firstYear % 4 != 0 && firstYear % 400 != 0)
+            while (month == 2 && day == 29 && year % 4 != 0 && year % 400 != 0)
             {
-                firstYear++;
+                year++;
             }
 
-            return firstYear * 10000 + birthday % 10000;
+            return year * 10000 + birthday % 10000;
         }
 
     }
@@ -65,13 +62,12 @@ namespace OopDemo
         //Implement Main method to try these methods out
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            int birthday = 19910229;
+            int birthday = 19920229;
             var sc = new SchoolCalendar(9, 1, 6);
             int firstSchoolDay = sc.GetFirstSchoolDayAtSchool(birthday);
             int firstBirthDay = sc.GetFirstBirthDayAtSchool(birthday);
 
-            Console.WriteLine("birthday:" + birthday);
+            Console.WriteLine("kid's birthday:" + birthday);
             Console.WriteLine("first day at school:" + firstSchoolDay);
             Console.WriteLine("first birthday at school:" + firstBirthDay);
         }
