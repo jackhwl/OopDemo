@@ -45,7 +45,7 @@ namespace OopDemo
                 year++;
             }
 
-            while (month == 2 && day == 29 && year % 4 != 0 && year % 400 != 0)
+            while (month == 2 && day == 29 && !((year % 4 == 0 && year % 100 != 0) || year % 400 == 0))
             {
                 year++;
             }
@@ -62,7 +62,7 @@ namespace OopDemo
         //Implement Main method to try these methods out
         static void Main(string[] args)
         {
-            int birthday = 19920229;
+            int birthday = 18920229;
             var sc = new SchoolCalendar(9, 1, 6);
             int firstSchoolDay = sc.GetFirstSchoolDayAtSchool(birthday);
             int firstBirthDay = sc.GetFirstBirthDayAtSchool(birthday);
