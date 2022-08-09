@@ -15,8 +15,12 @@ namespace OopDemo
             minAge = age;
         }
 
-        //Implement method which calculates first day at school, given the birthdate
-        public int GetFirstSchoolDayAtSchool(int birthday)
+        public virtual bool IsLeap(int year)
+        {
+            return ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0);
+        }
+
+        public int GetSchoolDate(int birthday)
         {
             int year = birthday / 10000 + minAge;
             int month = (birthday % 10000) / 100;
@@ -30,13 +34,12 @@ namespace OopDemo
             return year * 10000 + beginMonth * 100 + beginDay;
         }
 
-        //Implement method which calculates child's first birthday at school
-        public int GetFirstBirthDayAtSchool(int birthday)
+        public int GetSchoolBirthday(int birthday)
         {
             int month = (birthday % 10000) / 100;
             int day = (birthday % 10000) % 100;
 
-            int firstSchoolDay = GetFirstSchoolDayAtSchool(birthday);
+            int firstSchoolDay = GetSchoolDate(birthday);
 
             int year = firstSchoolDay / 10000;
 
@@ -45,7 +48,7 @@ namespace OopDemo
                 year++;
             }
 
-            while (month == 2 && day == 29 && !((year % 4 == 0 && year % 100 != 0) || year % 400 == 0))
+            while (month == 2 && day == 29 && !IsLeap(year))
             {
                 year++;
             }
@@ -55,7 +58,18 @@ namespace OopDemo
 
     }
 
+    class JulianSchoolCalendar : SchoolCalendar
+    {
+        public JulianSchoolCalendar(int month, int day, int age) : base(month, day, age)
+        {
+             
+        }
 
+        public override bool IsLeap(int year)
+        {
+            return year % 4 == 0;
+        }
+    }
 
     class Program
     {
@@ -64,12 +78,23 @@ namespace OopDemo
         {
             int birthday = 18920229;
             var sc = new SchoolCalendar(9, 1, 6);
-            int firstSchoolDay = sc.GetFirstSchoolDayAtSchool(birthday);
-            int firstBirthDay = sc.GetFirstBirthDayAtSchool(birthday);
+            int firstSchoolDay = sc.GetSchoolDate(birthday);
+            int firstBirthDay = sc.GetSchoolBirthday(birthday);
 
             Console.WriteLine("kid's birthday:" + birthday);
             Console.WriteLine("first day at school:" + firstSchoolDay);
             Console.WriteLine("first birthday at school:" + firstBirthDay);
+
+            Console.WriteLine();
+
+            SchoolCalendar jsc = new JulianSchoolCalendar(9, 1, 6);
+            int jfirstSchoolDay = jsc.GetSchoolDate(birthday);
+            int jfirstBirthDay = jsc.GetSchoolBirthday(birthday);
+
+            Console.WriteLine("j kid's birthday:" + birthday);
+            Console.WriteLine("j first day at school:" + jfirstSchoolDay);
+            Console.WriteLine("j first birthday at school:" + jfirstBirthDay);
+
         }
     }
 }
