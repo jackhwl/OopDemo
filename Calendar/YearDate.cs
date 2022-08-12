@@ -16,6 +16,11 @@ namespace Calendar
         {
 			return _month + "/" + _day;
         }
+
+        //public bool Early(YearDate yd)
+        //{
+        //    return yd._month > _month || 
+        //}
     }
 }
 

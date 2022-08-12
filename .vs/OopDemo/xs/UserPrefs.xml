@@ -1,4 +1,4 @@
-﻿<Properties StartupConfiguration="{9408E6E3-8040-4055-A35C-0FFFA4046ED5}|Default">
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{9408E6E3-8040-4055-A35C-0FFFA4046ED5}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="OopDemo/Program.cs">
     <Files>
       <File FileName="OopDemo/Program.cs" Line="21" Column="53" />
