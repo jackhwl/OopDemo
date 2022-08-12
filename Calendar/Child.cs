@@ -12,15 +12,10 @@ namespace Calendar
 			_birthday = birthday; 
 		}
 
-		public Date GetDateByAge(int minAge)
-        {
-			return _birthday.GetNext(minAge); // new Date(_birthday.Year + minAge, _birthday.Day);
-        }
+		public Date GetDateByAge(int minAge) => _birthday.AddYears(minAge);
 
-        public override string ToString()
-        {
-			return _name + " born on " + _birthday;
-        }
+        public override string ToString() => _name + " born on " + _birthday;
+        
     }
 }
 

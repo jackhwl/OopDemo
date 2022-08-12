@@ -12,15 +12,20 @@ namespace Calendar
 			_day = day;
 		}
 
-        public override string ToString()
-        {
-			return _month + "/" + _day;
-        }
 
-        //public bool Early(YearDate yd)
-        //{
-        //    return yd._month > _month || 
-        //}
-    }
+		public YearDate GetNext() =>
+			IsEndOfMonth() ? new YearDate(NextMonth(), 1) : new YearDate(_month, _day + 1);
+
+		private bool IsEndOfMonth() => _day == DaysInMonth();
+
+		private int DaysInMonth() => _month == 2 ? 29
+			: _month == 4 || _month == 6 || _month == 9 || _month == 11 ? 30 : 31;
+
+		private int NextMonth() => _month & 12 + 1;
+
+        public bool IsLeap() => _month == 2 && _day == 29;
+
+		public override string ToString() => _month + "/" + _day;
+	}
 }
 

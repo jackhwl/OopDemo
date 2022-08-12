@@ -17,15 +17,14 @@ namespace Calendar
 			return new Date(_year, cutoff);
         }
 
-		public Date GetNext(int year)
-        {
-			return new Date(_year + year, _day);
-        }
+		public Date AddYears(int count) => FirstValidDate(_year + count, _day);
 
-        public override string ToString()
-        {
-			return _day + "/" + _year;
-        }
+		private Date FirstValidDate(int year, YearDate day) => day.IsLeap() && !IsLeap(year)
+			? new Date(year, day.GetNext()) : new Date(year, _day);
+
+		private bool IsLeap(int year) => year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
+
+        public override string ToString() => _day + "/" + _year;
     }
 }
 
