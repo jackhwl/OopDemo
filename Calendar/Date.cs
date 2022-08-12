@@ -12,12 +12,15 @@ namespace Calendar
 			_day = day;
 		}
 
-		public Date GetFirstOccurrence(YearDate cutoff)
-        {
-			return new Date(_year, cutoff);
-        }
+		public Date GetFirstOccurrence(YearDate day) =>
+			GetFirstDayOccurrence(day.IsBefore(_day) ? _year + 1 : _year, day);
 
-		public Date AddYears(int count) => FirstValidDate(_year + count, _day);
+		private Date GetFirstDayOccurrence(int year, YearDate day) =>
+			new Date(IsLeap(year) ? GetLeap(year) : year, day);
+
+		private int GetLeap(int year) => IsLeap(year) ? year : GetLeap(year + 1);
+
+        public Date AddYears(int count) => FirstValidDate(_year + count, _day);
 
 		private Date FirstValidDate(int year, YearDate day) => day.IsLeap() && !IsLeap(year)
 			? new Date(year, day.GetNext()) : new Date(year, _day);
