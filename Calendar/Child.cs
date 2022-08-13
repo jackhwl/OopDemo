@@ -12,7 +12,10 @@ namespace Calendar
 			_birthday = birthday; 
 		}
 
-		public Date GetDateByAge(int minAge) => _birthday.AddYears(minAge);
+		public Date GetDateByAge(int age) => _birthday.AddYears(age);
+
+		public Date GetFirstCelebrationAt(SchoolSystem school) =>
+			school.GetBeginning(this).GetFirstDayOccurrence(_birthday);
 
         public override string ToString() => _name + " born on " + _birthday;
         

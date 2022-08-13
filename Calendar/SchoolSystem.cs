@@ -14,14 +14,10 @@ namespace Calendar
 			_schoolStart = schoolStart;
 		}
 
-		public Date GetBeginning(Child schoolchild)
-        {
-			Date oldEnough = schoolchild.GetDateByAge(_minAge);
-			Date cutoff = oldEnough.GetFirstOccurrence(_cutoff);
-			Date schoolday = cutoff.GetFirstOccurrence(_schoolStart);
-
-			return schoolday;
-        }
+		public Date GetBeginning(Child schoolchild) =>
+			schoolchild.GetDateByAge(_minAge)
+			.GetFirstOccurrence(_cutoff)
+			.GetFirstOccurrence(_schoolStart);
 	}
 }
 

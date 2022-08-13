@@ -4,17 +4,24 @@ namespace Calendar
 {
     class Program
     {
+        static void Report(Child child, SchoolSystem school)
+        {
+            Console.WriteLine(
+                child + " starts school on " + school.GetBeginning(child)
+                + " celebration on: " +  child.GetFirstCelebrationAt(school));
+        }
+
         static void Main(string[] args)
         {
-            Date birthday = new Date(2016, new YearDate(2, 29));
-            Child schoolChild = new Child("Jack", birthday);
-
             SchoolSystem school = new SchoolSystem(new YearDate(3, 1), 5, new YearDate(8, 15));
-            Date schoolStart = school.GetBeginning(schoolChild);
 
-            Console.WriteLine(birthday);
-            Console.WriteLine(schoolChild);
-            Console.WriteLine(schoolStart);
+            Child jack = new Child("Jack", new Date(2016, new YearDate(2, 29)));
+            Child jill = new Child("Jill", new Date(2015, new YearDate(8, 27)));
+
+
+            Report(jack, school);
+            Report(jill, school);
+
             Console.ReadLine();
         }
     }

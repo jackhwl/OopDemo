@@ -24,7 +24,7 @@ namespace Calendar
 		private int DaysInMonth() => _month == 2 ? 29
 			: _month == 4 || _month == 6 || _month == 9 || _month == 11 ? 30 : 31;
 
-		private int NextMonth() => _month & 12 + 1;
+		private int NextMonth() => _month % 12 + 1;
 
         public bool IsLeap() => _month == 2 && _day == 29;
 

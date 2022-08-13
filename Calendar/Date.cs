@@ -16,14 +16,16 @@ namespace Calendar
 			GetFirstDayOccurrence(day.IsBefore(_day) ? _year + 1 : _year, day);
 
 		private Date GetFirstDayOccurrence(int year, YearDate day) =>
-			new Date(IsLeap(year) ? GetLeap(year) : year, day);
+			new Date(day.IsLeap() ? GetLeap(year) : year, day);
 
-		private int GetLeap(int year) => IsLeap(year) ? year : GetLeap(year + 1);
+		public Date GetFirstDayOccurrence(Date day) => GetFirstDayOccurrence(_year, day._day);
+
+        private int GetLeap(int year) => IsLeap(year) ? year : GetLeap(year + 1);
 
         public Date AddYears(int count) => FirstValidDate(_year + count, _day);
 
 		private Date FirstValidDate(int year, YearDate day) => day.IsLeap() && !IsLeap(year)
-			? new Date(year, day.GetNext()) : new Date(year, _day);
+			? new Date(year, day.GetNext()) : new Date(year, day);
 
 		private bool IsLeap(int year) => year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
 
