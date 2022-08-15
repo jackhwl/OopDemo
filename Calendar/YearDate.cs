@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Calendar
+namespace Calendars
 {
 	public class YearDate
 	{
@@ -7,34 +7,23 @@ namespace Calendar
 		private int _day;
 		private Calendar _calendar;
 
-		public YearDate(int month, int day, Calendar calendar)
+		public YearDate(Calendar calendar, int month, int day)
 		{
 			_month = month;
 			_day = day;
 			_calendar = calendar;
 		}
 
+		public bool IsLeap() => _calendar.IsLeapDay(_month, _day);
 
 		public YearDate GetNext() =>
-			IsEndOfMonth() ? new YearDate(_calendar.NextMonth(_month), 1, _calendar) : new YearDate(_month, _day + 1, _calendar);
+			IsEndOfMonth() ? _calendar.Create(_calendar.NextMonth(_month), 1) : _calendar.Create(_month, _day + 1);
 
-		public bool IsBefore(YearDate other) =>
-			_month < other._month || (_month == other._month && _day < other._day);
+		public bool IsBefore(YearDate other) => _month < other._month || (_month == other._month && _day < other._day);
 
-        private bool IsEndOfMonth() => _day == _calendar.DaysInMonth(_month);
+        private bool IsEndOfMonth() => _day == _calendar.MaxDaysInMonth(_month);
 
 		public override string ToString() => _month + "/" + _day;
-
-        public override bool Equals(object obj)
-        {
-			YearDate day = obj as YearDate;
-
-			if (day == null) return false;
-
-            return _month == day._month && _day == day._day;
-        }
-
-        public override int GetHashCode() => (_month, _day).GetHashCode();
     }
 }
 

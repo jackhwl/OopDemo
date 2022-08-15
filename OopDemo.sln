@@ -5,7 +5,7 @@ VisualStudioVersion = 25.0.1700.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OopDemo", "OopDemo\OopDemo.csproj", "{AEDC9079-D461-4778-BBB7-BB3C53D5E007}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar", "Calendar\Calendar.csproj", "{9408E6E3-8040-4055-A35C-0FFFA4046ED5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendars", "Calendar\Calendars.csproj", "{9408E6E3-8040-4055-A35C-0FFFA4046ED5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

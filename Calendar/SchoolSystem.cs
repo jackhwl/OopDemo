@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Calendar
+namespace Calendars
 {
 	public class SchoolSystem
 	{
