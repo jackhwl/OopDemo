@@ -16,17 +16,12 @@ namespace Calendar
 
 
 		public YearDate GetNext() =>
-			IsEndOfMonth() ? new YearDate(NextMonth(), 1, _calendar) : new YearDate(_month, _day + 1, _calendar);
+			IsEndOfMonth() ? new YearDate(_calendar.NextMonth(_month), 1, _calendar) : new YearDate(_month, _day + 1, _calendar);
 
 		public bool IsBefore(YearDate other) =>
 			_month < other._month || (_month == other._month && _day < other._day);
 
-        private bool IsEndOfMonth() => _day == DaysInMonth();
-
-		private int DaysInMonth() => _month == 2 ? 29
-			: _month == 4 || _month == 6 || _month == 9 || _month == 11 ? 30 : 31;
-
-		private int NextMonth() => _month % 12 + 1;
+        private bool IsEndOfMonth() => _day == _calendar.DaysInMonth(_month);
 
         public bool IsLeap() => _month == 2 && _day == 29;
 
