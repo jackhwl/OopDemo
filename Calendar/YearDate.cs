@@ -23,9 +23,18 @@ namespace Calendar
 
         private bool IsEndOfMonth() => _day == _calendar.DaysInMonth(_month);
 
-        public bool IsLeap() => _month == 2 && _day == 29;
-
 		public override string ToString() => _month + "/" + _day;
-	}
+
+        public override bool Equals(object obj)
+        {
+			YearDate day = obj as YearDate;
+
+			if (day == null) return false;
+
+            return _month == day._month && _day == day._day;
+        }
+
+        public override int GetHashCode() => (_month, _day).GetHashCode();
+    }
 }
 

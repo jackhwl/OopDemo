@@ -5,7 +5,7 @@ namespace Calendar
 	{
 		public virtual bool IsLeapYear(int year) => year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
 
-		public virtual bool IsLeapDay(YearDate day) => day.IsLeap();
+		public virtual bool IsLeapDay(YearDate day) => day.Equals(new YearDate(2, 29, this));
 
 		public virtual int DaysInMonth(int month) => month == 2 ? 29 : month == 4 || month == 6 || month == 9 || month == 11 ? 30 : 31;
 
