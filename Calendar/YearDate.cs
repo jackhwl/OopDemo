@@ -5,16 +5,18 @@ namespace Calendar
 	{
 		private int _month;
 		private int _day;
+		private Calendar _calendar;
 
-		public YearDate(int month, int day)
+		public YearDate(int month, int day, Calendar calendar)
 		{
 			_month = month;
 			_day = day;
+			_calendar = calendar;
 		}
 
 
 		public YearDate GetNext() =>
-			IsEndOfMonth() ? new YearDate(NextMonth(), 1) : new YearDate(_month, _day + 1);
+			IsEndOfMonth() ? new YearDate(NextMonth(), 1, _calendar) : new YearDate(_month, _day + 1, _calendar);
 
 		public bool IsBefore(YearDate other) =>
 			_month < other._month || (_month == other._month && _day < other._day);
